@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        h1{
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        form{
+            width: 50%;
+            height: 45vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            border-radius: 4px;
+        }
+        label{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 300;
+            padding: 5px;
+            margin-bottom: 0;
+        }
+        input
+        {
+            width: 70%;
+            padding: 10px;
+            font-size: 1rem;
+        }
+        select
+        {
+            width: 20%;
+            height: fit-content;
+        }
+
+        button
+        {
+            margin-top: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>CALCULATOR</h1>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="">Value 1</label>
+        <input type="text" name="num1" value="0">
+        <label for="">Operation</label>
+        <select name="operation" id="select">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <label for="">Value 2</label>
+        <input type="text" name="num2" value="0">
+        <button type="submit">Calculate</button>
+        <label for="">Output</label>
+        <input type="text" value="{{result}}">
+    </form>
+    
+</body>
+</html>
